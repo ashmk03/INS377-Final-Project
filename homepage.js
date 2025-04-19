@@ -21,8 +21,8 @@ function createMap() {
           var airline = plane[1].substring(0,3);
 
           const FAAcallsigns=["AAL", "AAY", "ACA", "AIJ", "AMX", "ANA", "ASA", "ASH", "ATN", "AWI", "BAW", "DAL", "DHL", "DLH", "EDV", "ENY", "FDX", "FFT", "GEC", "HAL", "JBU", "JIA", "KLM", "NKS", "PDT", "POE", "QTR", "QXE", "ROU", "RPA", "SCX", "SWA", "SWG", "TSC", "UAE", "UAL", "UCA", "UPS", "VIV", "VOI", "WJA"];
-        
-          // Only show if we have valid coordinates and callsign (means it's likely commercial)
+
+          //FAA call signs confirm if it is commerical
           if (callsign && latitude && longitude && (FAAcallsigns.includes(airline)))  {
             L.marker([latitude, longitude])
               .addTo(map)
