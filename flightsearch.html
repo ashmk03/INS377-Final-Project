@@ -7,10 +7,19 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="flightsearch.js" defer></script>
+    <style>
+    #loading {
+        display: none;
+    }
+</style>
 </head>
 <body>
-<form>
+<form id="inputFlight" onsubmit="flightSearch(); return false;">
     <input type="text" id="flightNumber" required />
+    <input type="submit">
 </form>
-<div id="map"></div>
+<h2 id="loading">Loading...</h2>
+<div id="map">
+
+</div>
 </body>

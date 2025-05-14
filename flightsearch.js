@@ -1,33 +1,55 @@
-function searchMap() {
- var map = L.map('map').setView([39, -95], 4);
+let map; 
 
-    // Add the OpenStreetMap layer (the background map)
+function createMap() {
+
+    map = L.map('map').setView([39, -95], 4);
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data © OpenStreetMap contributors'
     }).addTo(map);
+}
 
-    // Get live airplane data from OpenSky
-    fetch('https://opensky-network.org/api/states/all')
-      .then(response => response.json())
-      .then(data => {
-        var planes = data.states;
+async function flightSearch() {
+    const flightNumberInput = document.getElementById("flightNumber");
+    const flightNumber = flightNumberInput.value.trim().toUpperCase(); 
+
+    document.getElementById('loading').style.display = 'block';
+
+    try {
+        const response = await fetch('https://opensky-network.org/api/states/all');
+        const data = await response.json();
+        const planes = data.states;
+
+        let found = false;
 
         // Loop through each plane
-        planes.forEach(function(plane) {
-          var callsign = plane[1]; // Airline flight code
-          var longitude = plane[5];
-          var latitude = plane[6];
-          var altitude = plane[7];
-          var airline = plane[1].substring(0,3);
+        planes.forEach(function (plane) {
+            const callsign = plane[1]?.trim(); 
+            const longitude = plane[5];
+            const latitude = plane[6];
+            const altitude = plane[7];
 
-          const FAAcallsigns=["AAL", "AAY", "ACA", "AIJ", "AMX", "ANA", "ASA", "ASH", "ATN", "AWI", "BAW", "DAL", "DHL", "DLH", "EDV", "ENY", "FDX", "FFT", "GEC", "HAL", "JBU", "JIA", "KLM", "NKS", "PDT", "POE", "QTR", "QXE", "ROU", "RPA", "SCX", "SWA", "SWG", "TSC", "UAE", "UAL", "UCA", "UPS", "VIV", "VOI", "WJA"];
+            if (callsign && callsign === flightNumber) {
+                found = true;
 
-          //FAA call signs confirm if it is commerical
-          if (callsign && latitude && longitude && (FAAcallsigns.includes(airline)))  {
-            L.marker([latitude, longitude])
-              .addTo(map)
-              .bindPopup("Flight: " + callsign + "<br>Altitude: " + Math.round(altitude) + " meters");
-          }
+                if (latitude !== null && longitude !== null) {
+                    L.marker([latitude, longitude])
+                        .addTo(map)
+                        .bindPopup("Flight: " + callsign + "<br>Altitude: " + Math.round(altitude) + " meters")
+                        .openPopup(); 
+                }
+            }
         });
-      });
+
+        if (!found) {
+            alert("Flight not found. Please check the callsign.");
+        }
+    } catch (error) {
+        console.error("Error fetching flight data:", error);
+        alert("There was an error retrieving flight data.");
+    } finally {
+        document.getElementById('loading').style.display = 'none';
+    }
 }
+
+window.onload = createMap;
