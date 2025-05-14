@@ -1,5 +1,5 @@
-function createMap() {
-    var map = L.map('map').setView([39, -95], 4);
+function searchMap() {
+ var map = L.map('map').setView([39, -95], 4);
 
     // Add the OpenStreetMap layer (the background map)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -30,6 +30,4 @@ function createMap() {
           }
         });
       });
-}  
-
-window.onload = createMap;
+}
