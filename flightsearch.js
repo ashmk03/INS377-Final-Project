@@ -7,10 +7,12 @@ function createMap() {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data © OpenStreetMap contributors'
     }).addTo(map);
+
+    document.getElementById('map').style.display = 'none';
 }
 
 async function flightSearch() {
-    const flightNumberInput = document.getElementById("flightNumber");
+    const flightNumberInput = document.getElementById("flight");
     const flightNumber = flightNumberInput.value.trim().toUpperCase(); 
 
     document.getElementById('loading').style.display = 'block';
@@ -49,6 +51,7 @@ async function flightSearch() {
         alert("There was an error retrieving flight data.");
     } finally {
         document.getElementById('loading').style.display = 'none';
+        document.getElementById('map').style.display = 'block';
     }
 }
 

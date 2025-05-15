@@ -13,11 +13,35 @@
     }
 </style>
 </head>
+<header class="hero-header">
+  <h1>Aviation for Noobs ✈️</h1>
+</header>
 <body>
-<form id="inputFlight" onsubmit="flightSearch(); return false;">
-    <input type="text" id="flightNumber" required />
-    <input type="submit">
+    <div class="containers">
+    <nav class="navbar">
+      <ul class="nav--list">
+        <li class="item"><a href="homepage.html">Home</a></li>
+        <li class="item"><a href="flightsearch.html">Search For Flight</a></li>
+        <li class="item"><a href="about_us.html">About</a></li>
+        <li class="item"><a href="help.html">Help</a></li>
+      </ul>
+    </nav>
+  </div>
+  <br>
+  <form id="inputFlight" onsubmit="flightSearch(); return false;">
+  <div class="fx fx-gap">
+    <div>
+       <input class="input" type="text" required="" placeholder="Search for Flight" id="flight">
+    </div>
+    <div id="search-icon">
+      <button type="submit">
+        <div id="search-icon-circle"></div>
+        <span></span>
+      </button>
+    </div>
+  </div>
 </form>
+
 <h2 id="loading">Loading...</h2>
 <div id="map">
 
