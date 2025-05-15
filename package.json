@@ -15,9 +15,13 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon -e *",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "body-parser": "^2.2.0",
+    "email-validator": "^2.0.4",
     "express": "^5.1.0"
   }
 }
