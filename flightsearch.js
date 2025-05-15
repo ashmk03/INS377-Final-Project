@@ -35,7 +35,17 @@ async function flightSearch() {
                 found = true;
 
                 if (latitude !== null && longitude !== null) {
-                    L.marker([latitude, longitude])
+                    var plane = L.icon({
+                        iconUrl: 'plane.png',
+                        shadowUrl: 'plane(2).png',
+
+                        iconSize:     [38, 38], // size of the icon
+                        shadowSize:   [38, 38], // size of the shadow
+                        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                        shadowAnchor: [10, 80],  // the same for the shadow
+                        popupAnchor:  [-50, -90] // point from which the popup should open relative to the iconAnchor
+                    });
+                    L.marker([latitude, longitude], {icon: plane})
                         .addTo(map)
                         .bindPopup("Flight: " + callsign + "<br>Altitude: " + Math.round(altitude) + " meters")
                         .openPopup(); 
