@@ -26,10 +26,13 @@ async function flightSearch() {
 
         // Loop through each plane
         planes.forEach(function (plane) {
-            const callsign = plane[1]?.trim(); 
+            const callsign = plane[1]?.trim();
+            const origin_country = plane[2];
+            const time_position = plane[3];
             const longitude = plane[5];
             const latitude = plane[6];
             const altitude = plane[7];
+            
 
             if (callsign && callsign === flightNumber) {
                 found = true;
