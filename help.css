@@ -226,10 +226,6 @@ body {
     
   }
 
-  #category {
-    font-size: 16px;
-    font-family: Garamond, serif;
-  }
   
   input:focus,
   textarea:focus {
