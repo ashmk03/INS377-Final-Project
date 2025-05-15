@@ -153,6 +153,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    text-align: center;
+    font-size: large;
   }
   
   .left-container {
@@ -168,4 +170,6 @@ body {
     margin-top: 0;
     color: #000000;
     text-align: center;
+    padding: 10px;
+    font-size: 50;
   }
