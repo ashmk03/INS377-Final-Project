@@ -221,8 +221,14 @@ body {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
-    font-family: inherit;
+    font-family: Garamond, serif;
     resize: vertical;
+    
+  }
+
+  #category {
+    font-size: 16px;
+    font-family: Garamond, serif;
   }
   
   input:focus,
