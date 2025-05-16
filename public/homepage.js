@@ -11,25 +11,98 @@ function createMap() {
       .then(response => response.json())
       .then(data => {
         var planes = data.states;
+    
+    let FAAcallsigns = {
+      "AAL": "AMERICAN",
+      "AAY": "ALLEGIANT AIR",
+      "ACA": "AIR CANADA",
+      "AIJ": "ABC AEROLINEAS",
+      "AMX": "AEROMEXICO",
+      "ANA": "ALL NIPPON AIRWAYS",
+      "ASA": "ALASKA",
+      "ASH": "AIR SHUTTLE",
+      "ATN": "AIR TRANSPORT",
+      "AWI": "AIR WISCONSIN",
+      "BAW": "BRITISH AIRWAYS",
+      "DAL": "DELTA",
+      "DLH": "LUFTHANSA",
+      "EDV": "ENDEAVOR AIR",
+      "ENY": "ENVOY AIR",
+      "FDX": "FEDEX",
+      "FFT": "FRONTIER",
+      "GEC": "LUFTHANSA CARGO",
+      "HAL": "HAWAIIAN AIRLINES",
+      "JBU": "JETBLUE",
+      "JIA": "PSA AIRLINES",
+      "KLM": "KLM ROYAL DUTCH",
+      "NKS": "SPIRIT",
+      "PDT": "PIEDMONT",
+      "POE": "PORTER",
+      "QTR": "QATAR AIRWAYS",
+      "QXE": "HORIZON AIR",
+      "ROU": "AIR CANADA ROUGE",
+      "RPA": "REPUBLIC",
+      "SCX": "SUN COUNTRY",
+      "SWA": "SOUTHWEST",
+      "SWG": "SUNWING",
+      "TSC": "AIR TRANSAT",
+      "UAE": "EMIRATES",
+      "UAL": "UNITED",
+      "UCA": "COMMUTAIR",
+      "UPS": "UPS",
+      "VIV": "AEROENLACES NACIONALES",
+      "VOI": "CONCESIONARIA VUELA COMPANIA DE AVIACION",
+      "WJA" :"WESTJET",
+    };
 
         // Loop through each plane
         planes.forEach(function(plane) {
-          var callsign = plane[1]; // Airline flight code
-          var longitude = plane[5];
-          var latitude = plane[6];
-          var altitude = plane[7];
-          var airline = plane[1].substring(0,3);
+          const callsign = plane[1]?.trim();
+          const origin_country = plane[2];
+          const time_position = plane[3];
+          const last_contact = plane[4];
+          const longitude = plane[5];
+          const latitude = plane[6];
+          const altitude = plane[7];
+          const velocity = plane[9];
+          
+          const match = /(?<airlineName>[A-Za-z]+) (?<code>[0-9]{0,4})$/.exec(callsign);
 
-          const FAAcallsigns=["AAL", "AAY", "ACA", "AIJ", "AMX", "ANA", "ASA", "ASH", "ATN", "AWI", "BAW", "DAL", "DHL", "DLH", "EDV", "ENY", "FDX", "FFT", "GEC", "HAL", "JBU", "JIA", "KLM", "NKS", "PDT", "POE", "QTR", "QXE", "ROU", "RPA", "SCX", "SWA", "SWG", "TSC", "UAE", "UAL", "UCA", "UPS", "VIV", "VOI", "WJA"];
+          if (!match) {
+            alert("Invalid flight format. Use format like 'DELTA 1234'");
+            return;
+           }
+          
+          const {airlineName, code} = match.groups;
 
-          //FAA call signs confirm if it is commerical
-          if (callsign && latitude && longitude && (FAAcallsigns.includes(airline)))  {
-            L.marker([latitude, longitude])
-              .addTo(map)
-              .bindPopup("Flight: " + callsign + "<br>Altitude: " + Math.round(altitude) + " meters");
-          }
-        });
+          let foundAirlineName = FAAcallsigns[airlineName];
+
+            if (latitude !== null && longitude !== null) {
+                  let displayName = foundAirlineName.charAt(0).toUpperCase() + foundAirlineName.slice(1).toLowerCase();
+                    var plane = L.icon({
+                      iconUrl: 'plane.png',
+                      shadowUrl: 'plane(2).png',
+
+                      iconSize:     [38, 38], // size of the icon
+                      shadowSize:   [38, 38], // size of the shadow
+                      iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                      shadowAnchor: [10, 80],  // the same for the shadow
+                      popupAnchor:  [-50, -90] // point from which the popup should open relative to the iconAnchor
+                    });
+
+                    L.marker([latitude, longitude], {icon:plane})
+                        .addTo(map)
+                        .bindPopup("Airline: " + displayName +
+                        "<br>Flight Number: " + code +
+                        "<br>Altitude: " + Math.round(altitude) + " meters" +
+                        "<br>Ground Speed: " + velocity +
+                        "<br>Country of Origin: " + origin_country +
+                        "<br>Last Contacted Air Traffic Control: " + last_contact +
+                        "<br>Last Updated: " + time_position)
+                        .openPopup(); 
+                }
       });
-}  
+  });
+}
 
 window.onload = createMap;
