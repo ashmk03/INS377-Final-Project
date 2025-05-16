@@ -115,13 +115,13 @@ async function flightSearch() {
 
                     L.marker([latitude, longitude], {icon:plane})
                         .addTo(map)
-                        .bindPopup("Airline: " + displayName +
-                        "<br>Flight Number: " + code +
-                        "<br>Altitude: " + Math.round(altitude) + " meters" +
-                        "<br>Ground Speed: " + velocity +
-                        "<br>Country of Origin: " + origin_country +
-                        "<br>Last Contacted Air Traffic Control: " + last_contact +
-                        "<br>Last Updated: " + time_position)
+                        .bindPopup("<b>Airline:</b> " + displayName +
+                        "<br><b>Flight Number: </b>" + code +
+                        "<br><b>Altitude: </b>" + Math.round(altitude) + " meters" +
+                        "<br><b>Ground Speed: </b>" + velocity +
+                        "<br><b>Country of Origin: </b>" + origin_country +
+                        "<br><b>Last Contacted Air Traffic Control: </b>" + last_contact +
+                        "<br><b>Last Updated: </b>" + time_position) 
                         .openPopup(); 
                 }
             }
