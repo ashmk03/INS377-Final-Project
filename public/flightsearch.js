@@ -75,6 +75,8 @@ async function flightSearch() {
 
     let correctFormat = foundCallSign + code;
 
+    let displayName = airlineName.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+
     
 
     document.getElementById('loading').style.display = 'block';
@@ -91,9 +93,11 @@ async function flightSearch() {
             const callsign = plane[1]?.trim();
             const origin_country = plane[2];
             const time_position = plane[3];
+            const last_contact = plane[4];
             const longitude = plane[5];
             const latitude = plane[6];
             const altitude = plane[7];
+            const velocity = plane[9];
             
 
             if (callsign && callsign === correctFormat) {
@@ -112,7 +116,12 @@ async function flightSearch() {
                     });
                     L.marker([latitude, longitude], {icon: plane})
                         .addTo(map)
-                        .bindPopup("Flight: " + callsign + "<br>Altitude: " + Math.round(altitude) + " meters")
+                        .bindPopup("Airline: " + displayName + "<br>Flight Number: " + code 
+                            + "<br>Altitude: " + Math.round(altitude) + " meters"
+                            + "<br>Ground Speed: " + velocity
+                            + "<br>Country of Origin: " + origin_country
+                             + "<br>Last Contacted Air Traffic Control: " + last_contact
+                            + "<br>Last Updated: " + time_position)
                         .openPopup(); 
                 }
             }
