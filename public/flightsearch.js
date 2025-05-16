@@ -15,6 +15,61 @@ async function flightSearch() {
     const flightNumberInput = document.getElementById("flight");
     const flightNumber = flightNumberInput.value.trim().toUpperCase(); 
 
+    const {airlineName, code} = /(?<airlineName>[A-Za-z]+) (?<code>[0-9]{0,4})$/.exec(flightNumber).groups;
+
+    let FAAcallsigns = {
+        "AMERICAN": "AAL",
+        "ALLEGIANT AIR": "AAY",
+        "AIR CANADA": "ACA",
+        "ABC AEROLINEAS": "AIJ",
+        "AEROMEXICO": "AMX",
+        "ALL NIPPON AIRWAYS": "ANA",
+        "ALASKA": "ASA",
+        "AIR SHUTTLE": "ASH",
+        "AIR TRANSPORT": "ATN",
+        "AIR WISCONSIN": "AWI",
+        "BRITISH AIRWAYS": "BAW",
+        "DELTA": "DAL",
+        "LUFTHANSA": "DLH",
+        "ENDEAVOR AIR": "EDV",
+        "ENVOY AIR": "ENY",
+        "FEDEX": "FDX",
+        "FRONTIER": "FFT",
+        "LUFTHANSA CARGO": "GEC",
+        "HAWAIIAN AIRLINES": "HAL",
+        "JETBLUE": "JBU",
+        "PSA AIRLINES": "JIA",
+        "KLM ROYAL DUTCH": "KLM",
+        "SPIRIT": "NKS",
+        "PIEDMONT": "PDT",
+        "PORTER": "POE",
+        "QATAR AIRWAYS": "QTR",
+        "HORIZON AIR": "QXE",
+        "AIR CANADA ROUGE": "ROU",
+        "REPUBLIC": "RPA",
+        "SUN COUNTRY": "SCX",
+        "SOUTHWEST": "SWA",
+        "SUNWING": "SWG",
+        "AIR TRANSAT": "TSC",
+        "EMIRATES": "UAE",
+        "UNITED": "UAL",
+        "COMMUTAIR": "UCA",
+        "UPS": "UPS",
+        "AEROENLACES NACIONALES": "VIV",
+        "CONCESIONARIA VUELA COMPANIA DE AVIACION": "VOI",
+        "WESTJET": "WJA"
+    };
+
+    let foundCallSign = null;
+
+    FAAcallsigns.forEach(function ([nameOfAirline, flightCode]){
+        if (airlineName === nameOfAirline) {
+            foundCallSign = flightCode;
+        }
+    });
+
+    let correctFormat = foundCallSign + code
+
     document.getElementById('loading').style.display = 'block';
 
     try {
@@ -34,7 +89,7 @@ async function flightSearch() {
             const altitude = plane[7];
             
 
-            if (callsign && callsign === flightNumber) {
+            if (callsign && callsign === correctFormat) {
                 found = true;
 
                 if (latitude !== null && longitude !== null) {
