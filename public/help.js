@@ -1,8 +1,9 @@
-
 async function loadCustomerData() {
   await fetch(`/customers`)
     .then((result) => result.json())
     .then((resultJson) => {
+      const container = document.getElementById('tableWrapper');
+
       const table = document.createElement('table');
       table.setAttribute('id', 'customerInfo');
 
@@ -37,7 +38,7 @@ async function loadCustomerData() {
         preExistingTable.remove();
       }
 
-      document.body.appendChild(table);
+      container.appendChild(table);
     });
 }
 

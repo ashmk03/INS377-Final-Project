@@ -178,8 +178,8 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px; /* optional for aesthetics */
-    object-fit: contain; /* ensures image doesn't stretch */
+    border-radius: 8px;
+    object-fit: contain; 
   }
 
     .container {
@@ -189,11 +189,30 @@ body {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
 
   .container h2 {
     margin-top: 0;
     color: #333;
+    text-align: center;
+  }
+
+  #customerInfo {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+
+  #customerInfo th,
+  #customerInfo td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+
+  #customerInfo th {
+    background-color: #f9f9f9;
   }
 
 
@@ -267,7 +286,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #0cf; /* $color */
+    background-color: #0cf;
     border-radius: 10rem;
     z-index: -2;
   }
@@ -279,7 +298,7 @@ body {
     left: 0;
     width: 0%;
     height: 100%;
-    background-color: #0099cc; /* darken(#0cf, 15%) */
+    background-color: #0099cc; 
     transition: all 0.3s;
     border-radius: 10rem;
     z-index: -1;
