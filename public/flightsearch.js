@@ -101,7 +101,7 @@ async function flightSearch() {
                 found = true;
 
                 if (latitude !== null && longitude !== null) {
-                    let displayName = airlineName.charAt(0).toUpperCase() + airlineName.slice(1).toLowerCase();
+                    let displayName = airlineName.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
                     var plane = L.icon({
                         iconUrl: 'plane.png',
                         shadowUrl: 'plane(2).png',
