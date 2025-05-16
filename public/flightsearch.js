@@ -113,7 +113,6 @@ async function flightSearch() {
                         popupAnchor:  [-50, -90] // point from which the popup should open relative to the iconAnchor
                     });
 
-
                     L.marker([latitude, longitude], {icon:plane})
                         .addTo(map)
                         .bindPopup("Airline: " + displayName +
