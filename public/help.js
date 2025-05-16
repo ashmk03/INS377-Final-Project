@@ -13,6 +13,8 @@ async function createCustomer() {
   }).then((result) => result.json());
 
   await loadCustomerData();
+
+  alert("Your response hase been noted!");
 }
 
 async function loadCustomerData() {
