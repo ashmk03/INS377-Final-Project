@@ -75,7 +75,7 @@ async function flightSearch() {
 
     let correctFormat = foundCallSign + code;
 
-    let displayName = airlineName.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+    let displayName = airlineName.charAt(0).toUpperCase() + airlineName.slice(1).toLowerCase();
 
     
 
