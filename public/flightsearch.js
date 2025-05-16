@@ -130,7 +130,7 @@ async function flightSearch() {
                     
                     const popup = L.popup(popupOptions).setContent(popupContent);
 
-                    L.marker([latitude, longitude], {icon: plane}, {max})
+                    L.marker([latitude, longitude], {icon: plane})
                         .addTo(map)
                         .bindPopup(popup)
                         .openPopup(); 
