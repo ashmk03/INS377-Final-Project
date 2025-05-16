@@ -212,13 +212,14 @@ body {
   }
 
   #customerInfo th {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
   }
 
 
 
   .form-container {
-    max-width: 600px;
+    max-width: 100%;
+    max-height:fit-content;
     margin: 40px auto;
     padding: 30px;
     background-color: #ffffff;
@@ -226,7 +227,6 @@ body {
     border: #000000;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     font-family: 'Garamond', serif;
-    
   }
   
   .form-container h2 {
