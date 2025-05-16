@@ -67,15 +67,13 @@ async function flightSearch() {
         "WESTJET": "WJA"
     };
 
-    let foundCallSign = null;
+    let foundCallSign = FAAcallsigns[airlineName];
+    if (!foundCallSign) {
+        alert("Airline not recognized.");
+        return;
+    }
 
-    FAAcallsigns.forEach(function ([nameOfAirline, flightCode]){
-        if (airlineName === nameOfAirline) {
-            foundCallSign = flightCode;
-        }
-    });
-
-    let correctFormat = foundCallSign + code
+    let correctFormat = foundCallSign + code;
 
     
 
