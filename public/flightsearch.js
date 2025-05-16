@@ -15,9 +15,9 @@ async function flightSearch() {
     const flightNumberInput = document.getElementById("flight");
     const flightNumber = flightNumberInput.value.trim().toUpperCase(); 
 
-    const match = /(?<airlineName>[A-Za-z]+) (?<code>[0-9]{0,4})$/.exec(flightNumber).groups;
+    const match = /(?<airlineName>[A-Za-z]+) (?<code>[0-9]{0,4})$/.exec(flightNumber);
 
-    if (!match || !match.groups) {
+    if (!match) {
         alert("Invalid flight format. Use format like 'DELTA 1234'");
         return;
     }
