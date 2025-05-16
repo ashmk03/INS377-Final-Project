@@ -58,8 +58,6 @@ function createMap() {
         // Loop through each plane
         planes.forEach(function(plane) {
           const callsign = plane[1]?.trim();
-          if (!foundAirlineName) 
-            return;
           const origin_country = plane[2];
           const time_position = plane[3];
           const last_contact = plane[4];
