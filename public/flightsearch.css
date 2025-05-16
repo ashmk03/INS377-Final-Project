@@ -1,7 +1,7 @@
 #map {
       height: 80vh;
       margin: 10px;
-      top: 100;
+      top: 400;
     }
 
 /* Header Styling */
@@ -311,4 +311,10 @@ button span:after {
   right: -6px;
   width: 40px;
   background-color: #fff;
+}
+
+.searchexplanation {
+  background-color: #015e75;
+  font-family: 'Garamond', serif;
+  color: white;
 }
