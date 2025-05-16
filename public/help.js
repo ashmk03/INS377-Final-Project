@@ -1,3 +1,20 @@
+async function createCustomer() {
+  await fetch(`/customers`, {
+    method: 'POST',
+    body: JSON.stringify({
+      firstName: `${document.getElementById('firstName').value}`,
+      lastName: `${document.getElementById('lastName').value}`,
+      email: `${document.getElementById('email').value}`,
+      message: `${document.getElementById('message').value}`,
+    }),
+    headers: {
+      'content-type': 'application/json',
+    },
+  }).then((result) => result.json());
+
+  await loadCustomerData();
+}
+
 async function loadCustomerData() {
   await fetch(`/customers`)
     .then((result) => result.json())
@@ -42,4 +59,4 @@ async function loadCustomerData() {
     });
 }
 
-window.onload = loadCustomerData;
+window.onload = loadCustomerData();

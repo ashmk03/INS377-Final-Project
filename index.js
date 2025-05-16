@@ -41,7 +41,7 @@ app.post('/customers', async (req, res) => {
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;
   var email = req.body.email;
-  var question = req.body.question;
+  var message = req.body.message;
 
     if (!validator.validate(email)) {
     console.log(`Email ${email} is Invalid`);
@@ -60,7 +60,7 @@ app.post('/customers', async (req, res) => {
       cust_fname: firstName,
       cust_lname: lastName,
       cust_email: email,
-      cust_message: question,
+      cust_message: message,
     })
     .select();
 

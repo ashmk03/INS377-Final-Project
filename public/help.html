@@ -31,18 +31,18 @@
       <p>We are aware of the possibility of usability issues. Please answer the form below with a description of the issue and a contact method, and we will be sure to reach out!</p>
       <div class="form-container">
         <h2>Contact Us</h2>
-        <form>
-          <label for="fname">First Name</label>
-          <input type="text" id="name" name="name" required />
+        <form onsubmit = "createCustomer(); return false">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" required />
 
-          <label for="lname">Last Name</label>
-          <input type="text" id="name" name="name" required />
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" required />
       
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" required />
 
           <label for="message">Question Needing Answer</label>
-          <textarea id="message" name="message" rows="5" required></textarea> <br>
+          <textarea id="message" rows="5" required></textarea> <br>
       
           <button type="submit" class = "button">Submit</button>
         </form>
