@@ -66,7 +66,7 @@ function createMap() {
           const altitude = plane[7];
           const velocity = plane[9];
           
-          const match = /(?<airlineName>[A-Z]{3})(?<code>[0-9]{0,4})$/.exec(callsign);
+          const match = /^(?<airlineName>[A-Z]{3})(?<code>[0-9]{1,4})$/.exec(callsign);
           
           const {airlineName, code} = match.groups;
 
