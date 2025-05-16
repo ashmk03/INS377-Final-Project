@@ -67,10 +67,12 @@ function createMap() {
           const velocity = plane[9];
           
           const match = /^(?<airlineName>[A-Z]{3})(?<code>[0-9]{1,4})$/.exec(callsign);
+          if (!match) return;
           
           const {airlineName, code} = match.groups;
 
           let foundAirlineName = FAAcallsigns[airlineName];
+          if (!foundAirlineName) return;
 
             if (latitude !== null && longitude !== null) {
                   let displayName = foundAirlineName.charAt(0).toUpperCase() + foundAirlineName.slice(1).toLowerCase();
