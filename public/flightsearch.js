@@ -112,14 +112,27 @@ async function flightSearch() {
                         shadowAnchor: [10, 80],  // the same for the shadow
                         popupAnchor:  [-50, -90] // point from which the popup should open relative to the iconAnchor
                     });
-                    L.marker([latitude, longitude], {icon: plane})
+
+                    const popupOptions = {
+                        maxWidth: 700,
+                        className: 'custom-popup',
+                        autoClose: false,
+                        closeOnClick: false
+                    };
+                    const popupContent =
+                        "Airline: " + displayName +
+                        "<br>Flight Number: " + code +
+                        "<br>Altitude: " + Math.round(altitude) + " meters" +
+                        "<br>Ground Speed: " + velocity +
+                        "<br>Country of Origin: " + origin_country +
+                        "<br>Last Contacted Air Traffic Control: " + last_contact +
+                        "<br>Last Updated: " + time_position;
+                    
+                    const popup = L.popup(popupOptions).setContent(popupContent);
+
+                    L.marker([latitude, longitude], {icon: plane}, {max})
                         .addTo(map)
-                        .bindPopup("Airline: " + displayName + "<br>Flight Number: " + code 
-                            + "<br>Altitude: " + Math.round(altitude) + " meters"
-                            + "<br>Ground Speed: " + velocity
-                            + "<br>Country of Origin: " + origin_country
-                             + "<br>Last Contacted Air Traffic Control: " + last_contact
-                            + "<br>Last Updated: " + time_position)
+                        .bindPopup(popup)
                         .openPopup(); 
                 }
             }

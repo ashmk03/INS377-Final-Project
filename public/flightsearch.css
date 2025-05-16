@@ -312,3 +312,8 @@ button span:after {
   width: 40px;
   background-color: #fff;
 }
+
+.custom-popup {
+  background-color: #015e75;
+  font-family: 'Garamond', serif;
+}
