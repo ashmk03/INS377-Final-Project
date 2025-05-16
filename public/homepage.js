@@ -73,6 +73,9 @@ function createMap() {
 
           let foundAirlineName = FAAcallsigns[airlineName];
           
+          function formatTimestamp(unix) {
+          return new Date(unix * 1000).toLocaleString();
+          }
 
             if (latitude !== null && longitude !== null) {
                   let displayName = foundAirlineName.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');

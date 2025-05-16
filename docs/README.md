@@ -69,7 +69,7 @@ To start the application:
 
 **You can access the working application using the Vercel link provided below:**
 
-[ins-377-final-project-git-main-ashleyks-projects.vercel.app]
+ins-377-final-project-git-main-ashleyks-projects.vercel.app[ins-377-final-project-git-main-ashleyks-projects.vercel.app]
 
 ---
 
