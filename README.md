@@ -13,13 +13,13 @@ Link to Developer Manual
 
 ## Installation Guide
 
-To gain a copy of the repository, in your terminal, make sure to input:
+>To gain a copy of the repository, in your terminal, make sure to input:
+>
+>`git clone git@github.com:ashmk03/INS377-Final-Project.git`
 
-`git clone git@github.com:ashmk03/INS377-Final-Project.git`
-
-Then, cd into the correct folder. 
-
-`cd INS377-Final-Project`
+>Then, cd into the correct folder. 
+>
+>`cd INS377-Final-Project`
 
 To execute JavaScript outside of the web browser, install Node.js using the following command (to be written in the terminal):
 
@@ -27,11 +27,11 @@ To execute JavaScript outside of the web browser, install Node.js using the foll
 
 Once that is done, the dependencies that need to be installed are included below, if not already included in the standard packages: 
 
-`npm install express`
-`npm install dotenv`
-`npm install body-parser`
-`npm install email-validator`
-`npm install @supabase/supabase-js`
+> `npm install express`
+>`npm install dotenv`
+>`npm install body-parser`
+>`npm install email-validator`
+>`npm install @supabase/supabase-js`
 
 Lastly, download nodemon for convenience in seeing updates to the application:
 
