@@ -15,7 +15,14 @@ async function flightSearch() {
     const flightNumberInput = document.getElementById("flight");
     const flightNumber = flightNumberInput.value.trim().toUpperCase(); 
 
-    const {airlineName, code} = /(?<airlineName>[A-Za-z]+) (?<code>[0-9]{0,4})$/.exec(flightNumber).groups;
+    const match = /(?<airlineName>[A-Za-z]+) (?<code>[0-9]{0,4})$/.exec(flightNumber).groups;
+
+    if (!match || !match.groups) {
+        alert("Invalid flight format. Use format like 'DELTA 1234'");
+        return;
+    }
+
+    const {airlineName, code} = match.groups;
 
     let FAAcallsigns = {
         "AMERICAN": "AAL",
@@ -69,6 +76,8 @@ async function flightSearch() {
     });
 
     let correctFormat = foundCallSign + code
+
+    
 
     document.getElementById('loading').style.display = 'block';
 
