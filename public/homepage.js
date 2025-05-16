@@ -72,7 +72,7 @@ function createMap() {
           const {airlineName, code} = match.groups;
 
           let foundAirlineName = FAAcallsigns[airlineName];
-          if (!foundAirlineNameh) return;
+          if (!foundAirlineName) return;
           
           function formatTimestamp(unix) {
           return new Date(unix * 1000).toLocaleString();
