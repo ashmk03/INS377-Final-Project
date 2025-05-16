@@ -85,6 +85,10 @@ async function flightSearch() {
 
         let found = false;
 
+    function formatTimestamp(unix) {
+    return new Date(unix * 1000).toLocaleString();
+    }
+
         // Loop through each plane
         planes.forEach(function (plane) {
             const callsign = plane[1]?.trim();
@@ -120,8 +124,8 @@ async function flightSearch() {
                         "<br><b>Altitude: </b>" + Math.round(altitude) + " meters" +
                         "<br><b>Ground Speed: </b>" + velocity +
                         "<br><b>Country of Origin: </b>" + origin_country +
-                        "<br><b>Last Contacted Air Traffic Control: </b>" + last_contact +
-                        "<br><b>Last Updated: </b>" + time_position) 
+                        "<br><b>Last Contacted Air Traffic Control: </b>" + formatTimestamp(last_contact) +
+                        "<br><b>Last Updated: </b>" + formatTimestamp(time_position)) 
                         .openPopup(); 
                 }
             }

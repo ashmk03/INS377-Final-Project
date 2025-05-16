@@ -94,8 +94,8 @@ function createMap() {
                         "<br><b>Altitude: </b>" + Math.round(altitude) + " meters" +
                         "<br><b>Ground Speed: </b>" + velocity +
                         "<br><b>Country of Origin: </b>" + origin_country +
-                        "<br><b>Last Contacted Air Traffic Control: </b>" + last_contact +
-                        "<br><b>Last Updated: </b>" + time_position); 
+                        "<br><b>Last Contacted Air Traffic Control: </b>" + formatTimestamp(last_contact) +
+                        "<br><b>Last Updated: </b>" + formatTimestamp(time_position)); 
                 }
       });
   });
