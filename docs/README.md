@@ -69,7 +69,7 @@ To start the application:
 
 **You can access the working application using the Vercel link provided below:**
 
-[ins-377-final-project-git-main-ashleyks-projects.vercel.app](ins-377-final-project-git-main-ashleyks-projects.vercel.app)
+[ins-377-final-project-git-main-ashleyks-projects.vercel.app](https://ins-377-final-project-git-main-ashleyks-projects.vercel.app)
 
 ---
 
@@ -83,7 +83,7 @@ Or to work on the application in a local server, once all the dependencies are i
 
 Currently, there is no automated testing in the code provided, but for future consideration, adding testing can ensure the efficiency of the api usage and read/write speed of Supabase.  
 
-#### API Used
+#### APIs Used
 
 `POST /customers`
 
@@ -152,6 +152,8 @@ Note: For users' privacy concerns, only the user’s first name and message are 
 ]
 ```
 ---
+
+
 
 **Potential Considerations**
 
