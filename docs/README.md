@@ -159,3 +159,5 @@ Note: For users' privacy concerns, only the user’s first name and message are 
 
 1. Adding an additional API to get more flight information and give airport data as well.
 2. Indicating if a flight is on time or delayed.
+3. Any text can currently be written in the 'questions' field of the form, leaving room for potential abuse. Adding a profanity filter can help to ensure the app is age appropriate.
+4. Update the form to include answers to previously asked questions. Adding this feature can help limit amount of questions searched. 
