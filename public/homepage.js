@@ -96,7 +96,7 @@ function createMap() {
                         .bindPopup("<b>Airline:</b> " + displayName +
                         "<br><b>Flight Number: </b>" + code +
                         "<br><b>Altitude: </b>" + Math.round(altitude) + " meters" +
-                        "<br><b>Ground Speed: </b>" + velocity +
+                        "<br><b>Ground Speed: </b>" + velocity + " m/s"+
                         "<br><b>Country of Origin: </b>" + origin_country +
                         "<br><b>Last Contacted Air Traffic Control: </b>" + formatTimestamp(last_contact) +
                         "<br><b>Last Updated: </b>" + formatTimestamp(time_position)); 
