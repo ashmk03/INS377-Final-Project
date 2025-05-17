@@ -1,7 +1,8 @@
 #map {
       height: 80vh;
       margin: 10px;
-      top: 400;
+      top: -10;
+      position: relative;
     }
 
 /* Header Styling */
@@ -203,14 +204,14 @@ button {
 }
 
 form {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 0;
   right: 0;
   width: 550px;
   height: 96px;
-  padding: 35px;
-  margin: -83px auto 0 auto;
+  padding: 0 auto 0 auto;
+  display: block;
   background-color: #015e75;
   border-radius: 20px;
   box-shadow: 0 10px 40px #015e75, 0 0 0 20px #ffffffeb;
@@ -219,7 +220,8 @@ form {
 
 input[type="text"] {
   width: 100%;
-  height: 40px;
+  height: 100px;
+  padding-left: 20px;
   font-size: 30px;
   line-height: 1;
   font-family: 'Garamond', serif;
@@ -228,21 +230,21 @@ input[type="text"] {
 input[type="text"]::placeholder {
   color: #ffffffeb;
 }
-
+/*Search Bar Inspo https://codepen.io/singhimalaya/pen/dqjLgO*/
 button {
   position: relative;
-  display: block;
+  display: relative;
   width: 84px;
   height: 96px;
-  left: 50px;
+  left: 20px; 
   bottom: 20px;
   cursor: pointer;
 }
 
 #search-icon-circle {
   position: relative;
-  top: -25px;
-  left: 10;
+  top: 10px;
+  left: 100px;
   width: 43px;
   height: 43px;
   margin-top: 0;
@@ -255,9 +257,9 @@ button {
 
 button span {
   position: absolute;
-  top: 65px;
-  left: 40px;
-  display: block;
+  top: 99px;
+  left: 140px;
+  display: inline-block;
   width: 15px;
   height: 5px;
   background-color: transparent;
@@ -281,7 +283,8 @@ button span:after {
 }
 
 #search-icon:hover #search-icon-circle {
-  top: -1px;
+  top: 20px;
+  left: 60px; 
   width: 67px;
   height: 15px;
   border-width: 0;
@@ -289,27 +292,27 @@ button span:after {
   border-radius: 20px;
 }
 
-#search-icon:hover span {
-  top: 50%;
-  left: 56px;
-  width: 25px;
+#search-icon:hover span { 
+  top: 70px;
+  left: 120px; 
+  width: 25px; 
   margin-top: 0;
   transform: rotateZ(0);
 }
 
 #search-icon:hover button span:before {
-  bottom: 11px;
-  transform: rotateZ(52deg);
+  bottom: 11px; 
+  transform: rotateZ(52deg); 
 }
 
 #search-icon:hover button span:after {
-  bottom: -11px;
-  transform: rotateZ(-52deg);
+  bottom: -11px; 
+  transform: rotateZ(-52deg); 
 }
+
 #search-icon:hover button span:before,
 #search-icon:hover button span:after {
-  right: -6px;
-  width: 40px;
+  width: 40px; 
   background-color: #fff;
 }
 
@@ -317,4 +320,18 @@ button span:after {
   background-color: #015e75;
   font-family: 'Garamond', serif;
   color: white;
+  text-align: center;
+  width: 500px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: block;
+  margin: 0;   
+}
+
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
 }

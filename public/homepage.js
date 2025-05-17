@@ -81,7 +81,7 @@ function createMap() {
             if (latitude !== null && longitude !== null) {
                   let displayName = foundAirlineName.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
                     var plane = L.icon({
-                      iconUrl: 'plane.png',
+                      iconUrl: 'plane.png', /*https://www.flaticon.com/free-icon/plane_870143?k=1747271725942&log-in=google */
                       shadowUrl: 'plane(2).png',
 
                       iconSize:     [38, 38], // size of the icon
